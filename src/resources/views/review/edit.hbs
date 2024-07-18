@@ -1,0 +1,38 @@
+<h1>Cập nhật khóa học</h1>
+<form method="POST" action="/tours/{{tour._id}}?_method=PUT">
+  <div class="form-group">
+    <label for="name">Tên chuyến đi</label>
+    <input
+      type="text"
+      class="form-control"
+      id="name"
+      value="{{tour.name}}"
+      name="name"
+      placeholder="Nhập tên chuyến"
+    />
+  </div>
+  <div class="form-group">
+    <label for="price">Giá tiền</label>
+    <input
+      type="text"
+      class="form-control"
+      id="price"
+      value="{{tour.price}}"
+      name="price"
+      placeholder="Nhập giá tiền"
+    />
+  </div>
+  <div class="form-group">
+    <label for="image">Hình ảnh</label>
+    <input
+      type="text"
+      class="form-control"
+      id="image"
+      value="{{tour.image}}"
+      name="image"
+      placeholder="Nhập hình ảnh"
+    />
+  </div>
+
+  <button type="submit" class="btn btn-primary">Sửa</button>
+</form>

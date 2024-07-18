@@ -1,0 +1,77 @@
+<h1>Tours</h1>
+<button>
+  <a href="/tours/trash">Thùng rác</a></button>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Price</th>
+      <th scope="col">Image</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  {{#each tours}}
+    <tbody>
+      <tr>
+        <th scope="row">{{sum @index 1}}</th>
+        <td>{{this.name}}</td>
+        <td>{{this.price}}</td>
+        <td>{{this.image}}</td>
+        <td>
+          <a href="/tours/{{this._id}}/edit" class="btn btn-link">Sửa</a>
+          <a
+            href=""
+            class="btn btn-link"
+            data-toggle="modal"
+            data-id="{{this._id}}"
+            data-target="#delete-tour-modal"
+          >Xóa</a>
+        </td>
+
+      </tr>
+    </tbody>
+  {{/each}}
+</table>
+
+<div id="delete-tour-modal" class="modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Xóa khóa học?</h5>
+        <button
+          type="button"
+          class="close"
+          data-dismiss="modal"
+          aria-label="Close"
+        >
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <p>Bạn chắc chắn muốn xóa khóa học này?</p>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-dismiss="modal"
+        >Hủy</button>
+        <button id="btn-delete-tour" type="button" class="btn btn-danger">Xóa bỏ</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+{{! Delete hidden form }}
+<form name="delete-tour-form" method="POST"></form>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() { var tourId; var
+  deleteForm = document.forms['delete-tour-form']; var btnDeleteTour =
+  document.getElementById('btn-delete-tour');
+  $('#delete-tour-modal').on('show.bs.modal', function (event) { var button =
+  $(event.relatedTarget); tourId = button.data('id'); }); btnDeleteTour.onclick
+  = function () { deleteForm.action = '/tours/' + tourId + '?_method=DELETE';
+  deleteForm.submit(); } });
+</script>

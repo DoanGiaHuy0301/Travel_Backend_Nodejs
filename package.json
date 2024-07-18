@@ -4,7 +4,10 @@
   "description": "",
   "main": "main.js",
   "scripts": {
-    "start": "nodemon --inspect src/main.js",
+    "start": "concurrently \"npm run server\" \"npm run watch-sass\"",
+    "server": "nodemon --inspect src/main.js",
+    "compile-sass": "node src/compile-sass.js",
+    "watch-sass": "nodemon --watch src/resources/scss -e scss --exec \"npm run compile-sass\"",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -23,14 +26,17 @@
   },
   "homepage": "https://github.com/DoanGiaHuy0301/Travel_Backend_Nodejs#readme",
   "dependencies": {
+    "bootstrap-icons": "^1.11.3",
+    "cors": "^2.8.5",
     "express": "^4.19.2",
     "express-handlebars": "^7.1.3",
     "method-override": "^3.0.0",
     "mongoose": "^8.4.4",
     "mongoose-delete": "^1.0.2",
-    "mongoose-slug-generator": "^1.0.4"
+    "mongoose-slug-updater": "^3.3.0"
   },
   "devDependencies": {
+    "concurrently": "^8.2.2",
     "husky": "^9.0.11",
     "lint-staged": "^15.2.7",
     "morgan": "^1.10.0",

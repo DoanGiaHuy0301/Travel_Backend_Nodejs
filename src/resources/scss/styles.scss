@@ -1,0 +1,94 @@
+@import "variables";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #fbfbfb;
+  font-family: "Poppins", Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+a {
+  text-decoration: none !important;
+}
+
+p {
+    margin: 0;
+    padding: 0;
+}
+
+.bg-primary-main {
+  background-color: var(--bg-primary-main) !important;
+}
+
+.min-height-300 {
+  min-height: 300px;
+}
+
+.row {
+  margin: 0;
+  padding: 0;
+}
+
+.text-title {
+  color: var(--color-text-grow) !important;
+}
+
+.font-text-title {
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
+// sidebars
+@media (min-width: 991.98px) {
+  main {
+    padding-left: 240px;
+  }
+}
+
+/* Sidebar */
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  padding: 58px 0 0; /* Height of navbar */
+  box-shadow:
+    0 2px 5px 0 rgb(0 0 0 / 5%),
+    0 2px 10px 0 rgb(0 0 0 / 5%);
+  width: 255px;
+  z-index: 600;
+}
+
+@media (max-width: 991.98px) {
+  .sidebar {
+    width: 100%;
+  }
+}
+.sidebar .active {
+  border-radius: 5px;
+  box-shadow:
+    0 2px 5px 0 rgb(0 0 0 / 16%),
+    0 2px 10px 0 rgb(0 0 0 / 12%);
+}
+
+.sidebar-sticky {
+  position: relative;
+  top: 0;
+  height: calc(100vh - 48px);
+  padding-top: 0.5rem;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.home {
+  color: green;
+  font-size: 100px;
+  background-color: rgb(30, 222, 222);
+  // border: 10px solid black;
+}
